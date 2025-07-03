@@ -37,8 +37,8 @@ python3 amper.py
 
 ---
 
-🧼 Uninstallation
-
+##🧼 Uninstallation
+```
 rm -rf -Digamber-Amper-Tool
 rm -rf ~/.digital_amper
 
@@ -49,32 +49,32 @@ rm -rf ~/.digital_amper
 
 ✅ Clone tool:
 
-
+```bash
 git clone https://github.com/thedigamber/-Digamber-Amper-Tool
 
 ✅ Enter directory:
-
+```
 
 cd -Digamber-Amper-Tool
 
 ✅ Install dependencies:
 
-
+```bash
 pip install -r requirements.txt
 
 ✅ Run tool:
 
-
+```
 python3 amper.py
 
 ❌ Uninstall tool:
 
-
+```bash
 rm -rf -Digamber-Amper-Tool ~/.digital_amper
 
 🔄 Update manually:
 
-
+```
 cd -Digamber-Amper-Tool && git pull
 
 
