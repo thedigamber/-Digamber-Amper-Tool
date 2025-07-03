@@ -35,8 +35,6 @@ pkg install git python -y
 git clone https://github.com/thedigamber/-Digamber-Amper-Tool
 cd -Digamber-Amper-Tool
 pip install -r requirements.txt
-
-
 ```
 ✅ Run Tool
 ```bash
