@@ -56,7 +56,11 @@ python3 amper.py
 
 
 
-🚀 How to Run
+
+
+
+
+ 🚀 How to Run
 
 python3 amper.py
 
