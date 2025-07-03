@@ -42,15 +42,15 @@ pip install -r requirements.txt
 ```bash
 python3 amper.py
 ```
-❌ Uninstall Tool
-```bash
-rm -rf -Digamber-Amper-Tool
-rm -rf ~/.digital_amper
-```
 🔄 Update Manually
 ```bash
 cd -Digamber-Amper-Tool
 git pull
+```
+❌ Uninstall Tool
+```bash
+rm -rf -Digamber-Amper-Tool
+rm -rf ~/.digital_amper
 ```
 ⚠️ Disclaimer
 
