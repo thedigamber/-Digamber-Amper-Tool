@@ -1,4 +1,4 @@
-# ⚔️ Digamber Amper Tool
+ e.s# ⚔️ Digamber Amper Tool
 
 ██████╗ ██╗ ██████╗  █████╗ ███╗   ███╗██████╗ ███████╗██████╗ ██╔══██╗██║██╔════╝ ██╔══██╗████╗ ████║██╔══██╗██╔════╝██╔══██╗ ██████╔╝██║██║  ███╗███████║██╔████╔██║██████╔╝█████╗  ██████╔╝ ██╔═══╝ ██║██║   ██║██╔══██║██║╚██╔╝██║██╔═══╝ ██╔══╝  ██╔═══╝ ██║     ██║╚██████╔╝██║  ██║██║ ╚═╝ ██║██║     ███████╗██║
 ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝ v1.2.0
@@ -40,19 +40,26 @@ rm -rf ./-Digamber-Amper-Tool
 git clone https://github.com/thedigamber/-Digamber-Amper-Tool
 cd ./-Digamber-Amper-Tool
 pip install -r requirements.txt
+pip install fake-useragent
 python3 amper.py
 ```
 Run tool again 
 ```bash
-cd ~/ -Digamber-Amper-Tool && python3 amper.py
+cd ~/./-Digamber-Amper-Tool
+python3 amper.py
 ```
 Remove tool
 ```bash
-rm -rf ~/ -Digamber-Amper-Tool
+cd ~
+rm -rf ./-Digamber-Amper-Tool
+rm -rf ~/.digital_amper
 ```
 Fix broken install
 ```bash
-apt --fix-broken install
+apt --fix-broken install -y
+pkg install python git -y
+python -m ensurepip
+pip install --upgrade pip setuptools wheel
 ```
 Change mirror repo
 ```bash
@@ -72,7 +79,8 @@ We do not promote unauthorized access or cyber crime.
 
 ---
 
-📩 Stay Connected
+🧪 Developed By:
 
-📍 Instagram: @thedigamber
+🧠 @thedigamber
+📷 Instagram
 🕉️ Jai Shree Ram
