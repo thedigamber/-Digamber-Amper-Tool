@@ -1,64 +1,78 @@
-# ⚡ Digamber-Amper-Tool
+# ⚔️ Digamber Amper Tool
 
-![Banner](https://raw.githubusercontent.com/thedigamber/-Digamber-Amper-Tool/main/.assets/banner.png)
-
-### 🔥 Powerful Hacking & Fun Toolkit for Termux/Linux  
-> 🎓 **For Educational Use Only**
-
----
-
-> 👨‍💻 Author: [@thedigamber](https://instagram.com/thedigamber)  
-> 📦 Version: `v1.2.0`  
-> 📜 License: MIT  
-> 💻 Platform: Termux / Linux / Android  
+██████╗ ██╗ ██████╗  █████╗ ███╗   ███╗██████╗ ███████╗██████╗ ██╔══██╗██║██╔════╝ ██╔══██╗████╗ ████║██╔══██╗██╔════╝██╔══██╗ ██████╔╝██║██║  ███╗███████║██╔████╔██║██████╔╝█████╗  ██████╔╝ ██╔═══╝ ██║██║   ██║██╔══██║██║╚██╔╝██║██╔═══╝ ██╔══╝  ██╔═══╝ ██║     ██║╚██████╔╝██║  ██║██║ ╚═╝ ██║██║     ███████╗██║
+╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝ v1.2.0
+🔗 By: [@thedigamber](https://www.instagram.com/thedigamber?igsh=MXA5dDV5aHRub3Z3cQ==)  
+💣 Digamber Amper is a multi-purpose hacking and prank toolkit built for Termux users.  
+It includes IP tracking, phishing, virus prank, payload generator and more.
 
 ---
 
-## 🚀 Features
+## 🧰 Tools Included
 
-- 🌐 IP Tracker  
-- 📍 GPS Tracker (Seeker-based)  
-- 📷 Camera Hack (CamPhish)  
-- 📱 Payload Generator (APK via `msfvenom`)  
-- 💀 Virus Prank (Rick Roll)  
-- 🎣 Phishing Tool (Zphisher)  
-- 🔍 Port Scanner  
-- ⚡ DoS Attack Tool (UDP Flood)
+| Tool              | Description                                |
+|-------------------|--------------------------------------------|
+| 🌐 IP Tracker      | Get detailed IP info from `ip-api.com`     |
+| 📍 GPS Tracker     | Track live location using Seeker           |
+| 📷 Camera Hack     | CamPhish tool for remote cam capture       |
+| 📱 Payload Gen     | Generate Android reverse payloads          |
+| 💀 Virus Prank     | Fake virus + RickRoll                      |
+| 🎣 Phishing Tool   | Launch phishing pages via Zphisher         |
+| 🔍 Port Scanner    | Scan open ports on target IP               |
+| ⚡ DoS Simulator    | Basic UDP flood simulator (educational)    |
 
 ---
 
-## ⚙️ Installation (Termux / Linux)
+## 🧾 Requirements
+
+- Python 3
+- pip
+- Git
+- `requests`, `colorama`, `argparse` (auto-installed)
+
+---
+
+## 🖥️ Installation (on Termux)
 
 ```bash
-pkg update && pkg upgrade -y
-pkg install git python -y
+cd ~
+rm -rf ./-Digamber-Amper-Tool
 git clone https://github.com/thedigamber/-Digamber-Amper-Tool
-cd -Digamber-Amper-Tool
+cd ./-Digamber-Amper-Tool
 pip install -r requirements.txt
-```
-✅ Run Tool
-```bash
 python3 amper.py
 ```
-🔄 Update Manually
+Run tool again 
 ```bash
-cd -Digamber-Amper-Tool
-git pull
+cd ~/ -Digamber-Amper-Tool && python3 amper.py
 ```
-❌ Uninstall Tool
+Remove tool
 ```bash
-rm -rf -Digamber-Amper-Tool
-rm -rf ~/.digital_amper
+rm -rf ~/ -Digamber-Amper-Tool
 ```
-⚠️ Disclaimer
+Fix broken install
+```bash
+apt --fix-broken install
+```
+Change mirror repo
+```bash
+termux-change-repo
+```
+(if update errors occur)
 
-> This tool is only for educational and ethical testing purposes.
-The author is not responsible for any misuse or illegal activity.
-Use it only on systems you own or have explicit permission to test.
+
+🚫 Disclaimer
+
+> This tool is for educational & ethical hacking purposes only.
+Any misuse or illegal activity using this tool is strictly your responsibility.
+We do not promote unauthorized access or cyber crime.
 
 
 
 
 ---
 
-🛕 Jai Shree Ram — Made with ❤️ by @thedigamber
+📩 Stay Connected
+
+📍 Instagram: @thedigamber
+🕉️ Jai Shree Ram
