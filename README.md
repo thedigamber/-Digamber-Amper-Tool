@@ -85,12 +85,13 @@ termux-change-repo
 Any misuse or illegal activity using this tool is strictly your responsibility.
 We do not promote unauthorized access or cyber crime.
 
-🔗 Must-Have Apps (Install First)
+📲 Install These Before Using Tool:
 
-🚀 App	📲 Download Link	💡 Why It’s Needed
+Termux (F-Droid):
+https://f-droid.org/en/packages/com.termux/
 
-🧰 Termux	⬇️ Click to Install Termux (F-Droid)	Terminal for running hacking tools
-🔌 Termux:API	⬇️ Click to Install Termux:API (F-Droid)	Access GPS, SMS, Camera, Sensors
+Termux:API (F-Droid):
+https://f-droid.org/en/packages/com.termux.api/
 
 
 
