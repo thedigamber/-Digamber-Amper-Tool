@@ -85,6 +85,66 @@ termux-change-repo
 Any misuse or illegal activity using this tool is strictly your responsibility.
 We do not promote unauthorized access or cyber crime.
 
+🔗 Must-Have Apps (Install First)
+
+🚀 App	📲 Download Link	💡 Why It’s Needed
+
+🧰 Termux	⬇️ Click to Install Termux (F-Droid)	Terminal for running hacking tools
+🔌 Termux:API	⬇️ Click to Install Termux:API (F-Droid)	Access GPS, SMS, Camera, Sensors
+
+
+
+---
+
+🧠 Psychology Hack – Why Install These First?
+
+🔓 Unlocks full power of hacking tools
+
+🛰️ GPS tracking, camera hacks start working
+
+🚫 Avoids 99% “command not found” errors
+
+📲 Prevents “Termux:API not installed” crashes
+
+💥 Experience full Digamber Amper magic
+
+
+
+---
+
+😵‍💫 What Happens If You Skip?
+
+❌ Mistake	⚠️ Result
+
+Didn’t install Termux:API	Camera, GPS, SMS tools FAIL
+Installed from Play Store	Tool crashes, errors occur
+Used old versions	Metasploit & payloads break
+
+
+
+---
+
+✅ So Do This NOW, Hacker 🔐
+
+1. 🧰 Install Termux
+
+
+2. 🔌 Install Termux:API
+
+
+3. 🏴‍☠️ Run the Digamber Amper Tool
+
+
+4. 😎 Rule the terminal like a cyber ninja
+
+
+
+
+---
+
+📛 Remember: “Real hackers don’t skip steps, they control them.” 🧠💣
+👑 Be that hacker. Be unstoppable.
+
 
 
 
@@ -93,5 +153,5 @@ We do not promote unauthorized access or cyber crime.
 🧪 Developed By:
 
 🧠 @thedigamber
-📷 Instagram
+📸 Stay updated with new tools, reels, and hacking tips → [@thedigamber](https://www.instagram.com/thedigamber)
 🕉️ Jai Shree Ram
