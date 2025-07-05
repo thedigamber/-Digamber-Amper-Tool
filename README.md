@@ -63,6 +63,15 @@ pkg install python git -y
 python -m ensurepip
 pip install --upgrade pip setuptools wheel
 ```
+(FOR payload generater tools ✅)
+```bash
+pkg update && pkg upgrade -y
+pkg install wget curl git ruby -y
+
+curl -LO https://raw.githubusercontent.com/Hax4us/Metasploit_termux/master/metasploit.sh
+chmod +x metasploit.sh
+./metasploit.sh
+```
 Change mirror repo
 ```bash
 termux-change-repo
