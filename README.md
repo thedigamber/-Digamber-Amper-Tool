@@ -37,6 +37,8 @@ It includes IP tracking, phishing, virus prank, payload generator and more.
 ```bash
 cd ~
 rm -rf ./-Digamber-Amper-Tool
+pkg update && pkg upgrade -y
+pkg install php -y
 git clone https://github.com/thedigamber/-Digamber-Amper-Tool
 cd ./-Digamber-Amper-Tool
 pip install -r requirements.txt
